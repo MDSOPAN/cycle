@@ -2,33 +2,76 @@
 <script src="{{ 'filter.js' | asset_url }}" defer></script>
 
 
-  <h1>Gello</h1>
+  
     <div class="filter_page">
-      <h2>Quel type de vélo ?</h2>
-      <input type='range' diabled class="range-input" />
+      <h2 class="ques_title">Quel type de vélo ?</h2>
+      <input type='range' id="rainput" value="0" disabled class="range-input" min="0" max="100"/>
       <div class="prod_type fil_cont">
-          {%- for i in block.settings.product_list -%}
-                  <div>
-                    <img
-                        class='pro_img fil_img'
-                        srcset="
-                          {%- if i.featured_media.width >= 165 -%}{{ i.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
-                          {%- if i.featured_media.width >= 360 -%}{{ i.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
-                          {%- if i.featured_media.width >= 533 -%}{{ i.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
-                          {{ i.featured_media | image_url }} {{ i.featured_media.width }}w
-                        "
-                        src="{{ i.featured_media | image_url: width: 533 }}"
-                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-                        alt="{{ i.featured_media.alt | escape }}"
-                        class="motion-reduce"
-                        loading='eager'
-                        {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
-                        {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
-                      >
-                    <input type="checkbox" name="{{ i.type }}" value="{{ i.type }}">
-                    <label for="{{ i.type }}">{{ i.type }}</label>
-                  </div>
-          {%- endfor -%}
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'vile.jpg' | asset_img_url: 'master' }}"
+              alt="Vélo de ville"
+              loading='eager'
+              {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+              {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+            >
+          <input type="checkbox" name="Vélo de ville" value="Vélo de ville">
+          <label for="Vélo de ville">Vélo de ville</label>
+        </div>
+
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'vtc.jpg' | asset_img_url: 'master' }}"
+              alt="vtc"
+              loading='eager'
+              {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+              {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+            >
+          <input type="checkbox" name="VTC" value="VTC">
+          <label for="VTC">VTC</label>
+        </div>
+
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'vtc.jpg' | asset_img_url: 'master' }}"
+              alt="Vélo Cargo"
+              loading='eager'
+              {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+              {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+            >
+          <input type="checkbox" name="Vélo Cargo" value="Vélo cargo">
+          <label for="Vélo Cargo">Vélo cargo</label>
+        </div>
+
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'vtt.jpg' | asset_img_url: 'master' }}"
+              alt="VTT"
+              loading='eager'
+              {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+              {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+            >
+          <input type="checkbox" name="VTT" value="VTT">
+          <label for="VTT">VTT</label>
+        </div>
+
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'pliant.jpg' | asset_img_url: 'master' }}"
+              alt="Vélo Pliant"
+              class="motion-reduce"
+              loading='eager'
+              {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+              {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+            >
+          <input type="checkbox" name="Vélo pliant" value="Vélo pliant">
+          <label for="Vélo pliant">Vélo pliant</label>
+        </div>
       </div>
 
       <div class="prod_size fil_cont hide">
@@ -93,8 +136,8 @@
                 {% comment %} width="{{ }}" {% endcomment %}
                 {% comment %} height="{{  }}" {% endcomment %}
               >
-            <input type="checkbox" name="lowest" value="filter.v.price.lte=1000">
-            <label for="lowest">Moins de <b>1000€</b></label>
+            <input type="radio" name="price" value="filter.v.price.lte=1000">
+            <label>Moins de <b>1000€</b></label>
           </div>
 
           <div>
@@ -106,8 +149,8 @@
                 {% comment %} width="{{ }}" {% endcomment %}
                 {% comment %} height="{{  }}" {% endcomment %}
               >
-            <input type="checkbox" name="entry" value="filter.v.price.gte=1000&filter.v.price.lte=2500">
-            <label for="entry">Entre <b>1000 et 2500€</b></label>
+            <input type="radio" name="price" value="filter.v.price.gte=1000&filter.v.price.lte=2500">
+            <label>Entre <b>1000 et 2500€</b></label>
           </div>
 
           <div>
@@ -119,8 +162,8 @@
                 {% comment %} width="{{ }}" {% endcomment %}
                 {% comment %} height="{{  }}" {% endcomment %}
               >
-            <input type="checkbox" name="most" value="filter.v.price.gte=2500">
-            <label for="most">Plus de <b>2500€</b></label>
+            <input type="radio" name="price" value="filter.v.price.gte=2500">
+            <label>Plus de <b>2500€</b></label>
           </div>
       </div>  
       <div class='hide result'>
@@ -128,11 +171,12 @@
             class='pro_img fil_img'
             src="{{ 'bike_finder.png' | asset_img_url: 'master' }}"
             alt="Lowest budget"
+            style="width: 25%;"
             loading='eager'
             {% comment %} width="{{ }}" {% endcomment %}
             {% comment %} height="{{  }}" {% endcomment %}
           >
-        <button  id="spn_wishlist_btn" class="progress_button discover_btn">Découvrir</button>
+        <button style="1.5rem 3rem  !important" id="spn_wishlist_btn" class="progress_button discover_btn">Découvrir</button>
       </div>
       <div data-current="type" style="display: flex;flex: 1;width: 100%;justify-content: space-between;margin: 1.5rem;">
         <button  id="spn_wishlist_btn" class="progress_button back_button">Previous</button>

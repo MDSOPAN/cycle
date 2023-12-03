@@ -22,14 +22,14 @@
     /* aspect-ratio: 1/1; */
 }
 .fil_img{
-    border-radius: 2rem;
+    /* border-radius: 2rem; */
 }
 .fil_cont{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(240px,0.3fr));
     gap: 1rem;   
     flex: 1;
-    width: 100%;
+    width: 85%;
     transition: all 500ms;
     justify-content: center;
 }
@@ -77,8 +77,19 @@
   .range-input::-moz-range-track {  
     background-color: #ccc;
   }
-
-
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    .range-input{
+      background: linear-gradient(to right, rgba(214, 249, 137, 1) 0%, rgba(214, 249, 137, 1) 0%, #fff 0%, #fff 100%);
+      /* border: solid 1px rgba(214, 249, 137, 1); */
+      border-radius: 8px;
+      height: 7px;
+      /* width: 356px; */
+      outline: none;
+      transition: background 450ms ease-in;
+      -webkit-appearance: none;
+      margin: 2rem;
+    }
+  }
   .progress_button{
     border: none !important;
     padding: 1rem 2rem !important;
@@ -107,7 +118,14 @@
     justify-content: center;
 }
 
-
+.result{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem;
+}
 
 .hide{
   position: absolute;
