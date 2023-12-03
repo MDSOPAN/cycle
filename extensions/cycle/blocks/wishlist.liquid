@@ -1,0 +1,10 @@
+<script src="{{ 'wishlist_render.js' | asset_url }}" defer="defer"></script>
+<link rel='stylesheet'  href="{{ 'wish.css' | asset_url }}" />
+<div class='wish_cont' data-customerid={{ customer.id }}></div>
+
+{% schema %}
+{
+  "name": "Wishlist",
+  "target": "section"
+}
+{% endschema %}

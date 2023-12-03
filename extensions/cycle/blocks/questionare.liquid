@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="{{ 'wish.css' | asset_url }}" />
+<script src="{{ 'filter.js' | asset_url }}" defer></script>
+
+
+  <h1>Gello</h1>
+    <div class="filter_page">
+      <h2>Quel type de vélo ?</h2>
+      <input type='range' diabled class="range-input" />
+      <div class="prod_type fil_cont">
+          {%- for i in block.settings.product_list -%}
+                  <div>
+                    <img
+                        class='pro_img fil_img'
+                        srcset="
+                          {%- if i.featured_media.width >= 165 -%}{{ i.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                          {%- if i.featured_media.width >= 360 -%}{{ i.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                          {%- if i.featured_media.width >= 533 -%}{{ i.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                          {{ i.featured_media | image_url }} {{ i.featured_media.width }}w
+                        "
+                        src="{{ i.featured_media | image_url: width: 533 }}"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                        alt="{{ i.featured_media.alt | escape }}"
+                        class="motion-reduce"
+                        loading='eager'
+                        {% comment %} width="{{ i.featured_media.width }}" {% endcomment %}
+                        {% comment %} height="{{ i.featured_media.height }}" {% endcomment %}
+                      >
+                    <input type="checkbox" name="{{ i.type }}" value="{{ i.type }}">
+                    <label for="{{ i.type }}">{{ i.type }}</label>
+                  </div>
+          {%- endfor -%}
+      </div>
+
+      <div class="prod_size fil_cont hide">
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'S.jpg' | asset_img_url: 'master' }}"
+              alt="Small Cycle"
+              loading='eager'
+              {% comment %} width="{{ }}" {% endcomment %}
+              {% comment %} height="{{  }}" {% endcomment %}
+            >
+          <input type="checkbox" name="S" value="S">
+          <label for="S"><b>S</b> (150cm - 170cm)</label>
+        </div>
+
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'M.jpg' | asset_img_url: 'master' }}"
+              alt="Medium Cycle"
+              loading='eager'
+              {% comment %} width="{{ }}" {% endcomment %}
+              {% comment %} height="{{  }}" {% endcomment %}
+            >
+          <input type="checkbox" name="M" value="M">
+          <label for="M"><b>M</b> (150cm - 170cm)</label>
+        </div>
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'L.jpg' | asset_img_url: 'master' }}"
+              alt="Large Cycle"
+              loading='eager'
+              {% comment %} width="{{ }}" {% endcomment %}
+              {% comment %} height="{{  }}" {% endcomment %}
+            >
+          <input type="checkbox" name="L" value="L">
+          <label for="L"><b>L</b> (150cm - 170cm)</label>
+        </div>
+        <div>
+          <img
+              class='pro_img fil_img'
+              src="{{ 'U.jpg' | asset_img_url: 'master' }}"
+              alt="Extra Large Cycle"
+              loading='eager'
+              {% comment %} width="{{ }}" {% endcomment %}
+              {% comment %} height="{{  }}" {% endcomment %}
+            >
+          <input type="checkbox" name="U" value="U">
+          <label for="U"><b>U</b> (150cm - 170cm)</label>
+        </div>
+      </div> 
+
+      <div class="prod_price fil_cont hide">
+        <div>
+            <img
+                class='pro_img fil_img'
+                src="{{ 'coins-1.jpg' | asset_img_url: 'master' }}"
+                alt="Lowest budget"
+                loading='eager'
+                {% comment %} width="{{ }}" {% endcomment %}
+                {% comment %} height="{{  }}" {% endcomment %}
+              >
+            <input type="checkbox" name="lowest" value="filter.v.price.lte=1000">
+            <label for="lowest">Moins de <b>1000€</b></label>
+          </div>
+
+          <div>
+            <img
+                class='pro_img fil_img'
+                src="{{ 'coins-2.jpg' | asset_img_url: 'master' }}"
+                alt="Entry Level Budget"
+                loading='eager'
+                {% comment %} width="{{ }}" {% endcomment %}
+                {% comment %} height="{{  }}" {% endcomment %}
+              >
+            <input type="checkbox" name="entry" value="filter.v.price.gte=1000&filter.v.price.lte=2500">
+            <label for="entry">Entre <b>1000 et 2500€</b></label>
+          </div>
+
+          <div>
+            <img
+                class='pro_img fil_img'
+                src="{{ 'coins-3.jpg' | asset_img_url: 'master' }}"
+                alt="Most Budget"
+                loading='eager'
+                {% comment %} width="{{ }}" {% endcomment %}
+                {% comment %} height="{{  }}" {% endcomment %}
+              >
+            <input type="checkbox" name="most" value="filter.v.price.gte=2500">
+            <label for="most">Plus de <b>2500€</b></label>
+          </div>
+      </div>  
+      <div class='hide result'>
+        <img
+            class='pro_img fil_img'
+            src="{{ 'bike_finder.png' | asset_img_url: 'master' }}"
+            alt="Lowest budget"
+            loading='eager'
+            {% comment %} width="{{ }}" {% endcomment %}
+            {% comment %} height="{{  }}" {% endcomment %}
+          >
+        <button  id="spn_wishlist_btn" class="progress_button discover_btn">Découvrir</button>
+      </div>
+      <div data-current="type" style="display: flex;flex: 1;width: 100%;justify-content: space-between;margin: 1.5rem;">
+        <button  id="spn_wishlist_btn" class="progress_button back_button">Previous</button>
+        <button  id="spn_wishlist_btn" class="progress_button continue_button">Continue</button>
+      </div>
+    </div>
+
+
+
+
+{% schema %}
+{
+  "name": "Filter Questions",
+  "target": "section",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Featured Types"
+    }
+  ]
+}
+{% endschema %}

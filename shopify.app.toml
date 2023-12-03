@@ -2,7 +2,7 @@
 
 name = "cycle"
 client_id = "a00a2c2c4f1ebae46bc6500b1da31fa3"
-application_url = "https://links-isa-cargo-explanation.trycloudflare.com"
+application_url = "https://operators-jamie-economics-wal.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,10 +11,10 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://links-isa-cargo-explanation.trycloudflare.com/auth/callback",
-  "https://links-isa-cargo-explanation.trycloudflare.com/auth/shopify/callback",
-  "https://links-isa-cargo-explanation.trycloudflare.com/api/auth/callback",
-  "https://links-isa-cargo-explanation.trycloudflare.com/.shopify/graphiql/auth/callback"
+  "https://operators-jamie-economics-wal.trycloudflare.com/auth/callback",
+  "https://operators-jamie-economics-wal.trycloudflare.com/auth/shopify/callback",
+  "https://operators-jamie-economics-wal.trycloudflare.com/api/auth/callback",
+  "https://operators-jamie-economics-wal.trycloudflare.com/.shopify/graphiql/auth/callback"
 ]
 
 [webhooks]

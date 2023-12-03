@@ -1,0 +1,116 @@
+#spn_wishlist_btn{
+    padding: 1rem;
+    border: thin black solid;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    background-color: transparent;
+}
+
+.spn_active{
+    color: white;
+    background-color:black !important;
+}
+
+.wish_cont{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.pro_img{
+    width: 100%;
+    /* aspect-ratio: 1/1; */
+}
+.fil_img{
+    border-radius: 2rem;
+}
+.fil_cont{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,0.3fr));
+    gap: 1rem;   
+    flex: 1;
+    width: 100%;
+    transition: all 500ms;
+    justify-content: center;
+}
+
+.range-input {
+    -webkit-appearance: none;
+    appearance: none; 
+    width: 70%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    /* height: 6px; */
+    /* background: #ccc; */
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; 
+    height: 25px;
+    width: 25px;
+    background-color: rgba(214, 249, 137, 1);
+    border-radius: 50%;
+    border: none;
+    transition: .2s ease-in-out;
+  }
+  
+  .range-input::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    background-color: rgba(214, 249, 137, 1);
+    border-radius: 50%;
+    border: none;
+    transition: .2s ease-in-out;
+  }
+  
+  .range-input::-moz-range-progress {
+    background-color: rgba(214, 249, 137, 1); 
+  }
+
+  .range-input::-ms-fill-lower {
+    background-color: rgba(214, 249, 137, 1); 
+  }
+
+  .range-input::-moz-range-track {  
+    background-color: #ccc;
+  }
+
+
+  .progress_button{
+    border: none !important;
+    padding: 1rem 2rem !important;
+  }
+  .continue_button{
+    background-color: rgba(214, 249, 137, 1) !important;
+    align-self: flex-end;
+    margin-right: 10%;
+    color: #fff;
+  }
+  .discover_btn{
+    background-color: rgba(214, 249, 137, 1) !important;
+    color: #fff;
+  }
+  .back_button{
+    background-color: #ccc !important;
+    align-self: flex-start;
+    margin-left: 10%;
+    color: rgba(0,0,0,0.7);
+  }
+.filter_page{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.hide{
+  position: absolute;
+  z-index: -10;
+  opacity: 0;
+}
