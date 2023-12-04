@@ -20,9 +20,6 @@
     background-color:black !important;
 }
 
-.spn_active svg{
-  fill: #000 !important;
-}
 
 .wish_cont{
     display: grid;

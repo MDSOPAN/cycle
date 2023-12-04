@@ -49,7 +49,7 @@ let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 if(wishlist == null){
     wishlist = new Array();
 }
-console.log('startedd 13')
+
 
 if(wish_cont){
     const promises= new Array();
@@ -84,6 +84,11 @@ if(wish_cont){
                 })  
             })
         })
+    }else{
+        let title = document.querySelector('.place_title')
+        let p = document.createElement('p');
+        p.textContent = 'Vous n\'avez pas encore de vélos dans vos favoris.'
+        title.appendChild(p);
     }
     
 }
