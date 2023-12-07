@@ -1,23 +1,27 @@
 #spn_wishlist_btn{
-    /* padding: 1rem; */
-    border: thin black solid;
+    padding: 1rem 2rem;
+    border: thin #ccc solid;
     border-radius: 0.5rem;
     font-size: 1.4rem;
     background-color: transparent;
     border-radius: 30px;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+#spn_wishlist_btn div{
+  display: flex;
+}
 #spn_wishlist_btn p{
   font-size: 120%;
   margin-left: 0.5rem;
 }
 .spn_active{
-    color: white;
-    background-color:black !important;
+  color: white;
+  border-color: #D6F989 !important;
+  background-color: #D6F989 !important;
 }
 
 
@@ -90,7 +94,7 @@
   }
   @media screen and (-webkit-min-device-pixel-ratio:0) {
     .range-input{
-      background: linear-gradient(to right, rgba(214, 249, 137, 1) 0%, rgba(214, 249, 137, 1) 0%, #fff 0%, #fff 100%);
+      background: linear-gradient(to right, rgba(214, 249, 137, 1) 0%, rgba(214, 249, 137, 1) 0%, #ccc 0%, #ccc 100%);
       /* border: solid 1px rgba(214, 249, 137, 1); */
       border-radius: 8px;
       height: 7px;
@@ -148,4 +152,18 @@
   .wish_inline_p{
     display: inline;
   }
+}
+
+.noty{
+  display: flex;
+  background-color: #fff;
+  border-radius: 30px;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 5%;
+}
+
+.noty img{
+  width: 50px;
+  margin: 3%;
 }

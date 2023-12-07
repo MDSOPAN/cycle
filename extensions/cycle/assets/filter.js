@@ -8,7 +8,7 @@ const ev = new Event("val_change");
         if(/(safari|chrome)/.test(navigator.userAgent.toLowerCase())){
             var value = (ev.target.value-ev.target.min)/(ev.target.max-ev.target.min)*100
             console.log(ev.target.min);
-            ev.target.style.background = 'linear-gradient(to right, rgba(214, 249, 137, 1) 0%, rgba(214, 249, 137, 1) ' + value + '%, #fff ' + value + '%, white 100%)'
+            ev.target.style.background = 'linear-gradient(to right, rgba(214, 249, 137, 1) 0%, rgba(214, 249, 137, 1) ' + value + '%, #ccc ' + value + '%, #ccc 100%)'
         }
 
     })
